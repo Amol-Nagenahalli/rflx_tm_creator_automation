@@ -4,6 +4,10 @@ import { defineConfig, devices } from '@playwright/test';
 // import path from 'path';
 // dotenv.config({ path: path.resolve(__dirname, '.env') });
 
+const config = {   reporter: [['junit', { outputFile:
+'test-results/results.xml' }]], };
+
+module.exports = config;`
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
