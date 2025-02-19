@@ -6,6 +6,8 @@ module.exports = {
   projectTypeDescription: "Program Project : Sanity : KNLDEV01",
   projectTitle: `Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
   projectTitleEdit : `Post Launch Edit Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
+  projectTitleCopy : `Copy Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
+  projectTitleEditCopy : "Post Launch Edit Program Project Sanity : TASK-RELEASE",
   assignTo: "Store Manager - Store",
   assignTo1: "Store Manager - Grocery",
   creatorDept: "Corporate",
