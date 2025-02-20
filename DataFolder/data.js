@@ -2,9 +2,13 @@ module.exports = {
 
   username: 'SYSADMIN',
   password: 'SYSADMINZebra@123!',
+  Approverusername: 'APPROVER',
+  Approverpassword: 'APPROVERZebra@123!',
   projectTypeName: "Program Project : Sanity : KNLDEV01",
+  projectTypeNameApprover : "Program Project APPROVER : Sanity : KNLDEV01",
   projectTypeDescription: "Program Project : Sanity : KNLDEV01",
   projectTitle: `Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
+  projectTitleApprover: `Program Project Sanity : Approver : RELEASE ${Math.floor(Math.random() * 100000)}`,
   projectTitleEdit : `Post Launch Edit Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
   projectTitleCopy : `Copy Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
   projectTitleEditCopy : "Post Launch Edit Program Project Sanity : TASK-RELEASE",
