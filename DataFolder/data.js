@@ -1,6 +1,8 @@
 module.exports = {
 
-//Credentials :
+//URL
+  knldev01: 'https://knldev01.reflexisinc.co.in/kernel/views/authenticate/W/REFLEXIS.view',
+//Credentials
   username: 'SYSADMIN',
   password: 'SYSADMINZebra@123!',
   Approverusername: 'APPROVER',

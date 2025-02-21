@@ -6,7 +6,7 @@ test('copy program project', async ({ page }) => {
     test.slow();
     test.setTimeout()
 
-  await page.goto('https://knldev01.reflexisinc.co.in/kernel/views/authenticate/W/REFLEXIS.view');
+  await page.goto(credentials.knldev01);
   await page.getByRole('textbox', { name: 'Enter username' }).click();
   await page.getByRole('textbox', { name: 'Enter username' }).fill(credentials.username);
   await page.getByRole('textbox', { name: 'Enter password' }).click();
