@@ -136,6 +136,7 @@ test('Approver create program project', async ({ page }) => {
   await page.locator('iframe[name="RTM20_AIN1"]').contentFrame().locator('a').filter({ hasText: 'Actions' }).click();
   await page.locator('iframe[name="RTM20_AIN1"]').contentFrame().getByRole('menuitem', { name: 'Approve and Launch' }).click();
   await page.locator('iframe[name="RTM20_AIN1"]').contentFrame().getByRole('button', { name: 'Confirm' }).click();
+  await page.waitForTimeout(5000);
 
 
 //Login back to Creator
