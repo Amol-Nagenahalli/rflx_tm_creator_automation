@@ -1,6 +1,6 @@
 pipeline {
     agent any
-     tools {
+    tools {
         nodejs 'NodeJS@16'
     }
     stages {
@@ -12,7 +12,9 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'xvfb-run -a npx playwright test'
+                wrap([$class: 'Xvfb']) {
+                    sh 'npx playwright test'
+                }
             }
         }
     }
