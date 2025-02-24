@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'npx playwright test'
+                sh 'xvfb-run -a npx playwright test'
             }
         }
     }
@@ -20,7 +20,6 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
             junit 'playwright-report/*.xml'
-           
         }
     }
 }
