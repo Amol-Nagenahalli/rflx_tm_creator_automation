@@ -23,4 +23,3 @@ pipeline {
             junit 'playwright-report/*.xml'
         }
     }
-}
