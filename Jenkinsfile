@@ -17,7 +17,7 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
             junit 'playwright-report/*.xml'
-
+           
         }
     }
 }
