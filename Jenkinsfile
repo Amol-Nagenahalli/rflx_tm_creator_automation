@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                wrap([$class: 'Xvfb']) {
+              {
                     sh 'npx playwright test'
                 }
             }
