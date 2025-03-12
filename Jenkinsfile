@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs 'NodeJS@16'
+    }
     stages {
         stage('Install Dependencies') {
             steps {
@@ -9,7 +12,8 @@ pipeline {
         }
         stage('Run Tests') {
             steps {
-                sh 'npx playwright test'
+                    sh 'npx playwright test'
+                }
             }
         }
     }
@@ -17,7 +21,5 @@ pipeline {
         always {
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
             junit 'playwright-report/*.xml'
-           
         }
     }
-}
