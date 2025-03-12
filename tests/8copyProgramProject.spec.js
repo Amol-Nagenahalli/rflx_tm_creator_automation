@@ -17,6 +17,7 @@ test('copy program project', async ({ page }) => {
   await page.locator('#menu-RTM20').click();
   await page.getByRole('link', { name: 'Inbox' }).click();
   const frame = await page.frame({ name: 'RTM20_IN1' });
+  await page.waitForTimeout(5000);
   const createNewButton = frame.locator('a').filter({ hasText: 'Create New' });
   await expect(createNewButton).toBeVisible();
 

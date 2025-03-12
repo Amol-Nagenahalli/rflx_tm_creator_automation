@@ -2,11 +2,14 @@ module.exports = {
 
 //URL
   knldev01: 'https://knldev01.reflexisinc.co.in/kernel/views/authenticate/W/REFLEXIS.view',
+//  knldev01: 'https://apprl07pt.reflexisinc.com/kernel/views/authenticate/W/APPRL.view',
 //Credentials
   username: 'SYSADMIN',
   password: 'SYSADMINZebra@123!',
   Approverusername: 'APPROVER',
   Approverpassword: 'APPROVERZebra@123!',
+  Storeusername: '654321',
+  Storepassword: '654321Zebra@123!',
 
 
 //Project Title
@@ -45,6 +48,7 @@ module.exports = {
   taskTitle: `Task 1 ${Math.floor(Math.random() * 100000)}`,
   taskTitle1: `Task 2 ${Math.floor(Math.random() * 100000)}`,
 
+
 //Project Type Setup
   projectTypeName: "Program Project : Sanity : KNLDEV01",
   projectTypeNameApprover : "Program Project APPROVER : Sanity : KNLDEV01",
@@ -54,6 +58,17 @@ module.exports = {
   repeatingProjectType: "Repeating Project : KNLDEV01",
   planProjectType: "Plan For Plan Processing KNLDEV01",
   calendarProjectType: "Calendar Project - KNLDEV01",
+
+////Project Type Setup ZTM
+//
+//    projectTypeName: "Direct Launch Project Type ",
+//    projectTypeNameApprover : "Program Project : 18-Dec-2024",
+//    simpleProjectType: "Simple Project : 18-12-2024",
+//    collaborationProjectType: "Collaboration Project - KNLDEV01",
+//    simpleRepeatingType: "Simple repeating project",
+//    repeatingProjectType: "Repeating Project : 18-12-2024",
+//    planProjectType: "Plan For Plan Processing KNLDEV01",
+//    calendarProjectType: "Calendar Project - KNLDEV01",
 
 
 //Assignment
@@ -95,7 +110,7 @@ module.exports = {
   planningDept: "Store",
   planCategory : "Product 6 - Recall",
   resourceType : "Store Manager",
-  resourceDepartment: "Store",
+  resourceDepartment: "Bakery",
 
 
   };

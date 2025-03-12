@@ -16,6 +16,7 @@ test('create plan', async ({ page }) => {
   await page.locator('#menu-RTM20').click();
   await page.getByRole('link', { name: 'Inbox' }).click();
   const frame = await page.frame({ name: 'RTM20_IN1' });
+  await page.waitForTimeout(5000);
   const createNewButton = frame.locator('a').filter({ hasText: 'Create New' });
   await expect(createNewButton).toBeVisible();
 
@@ -54,7 +55,7 @@ test('create plan', async ({ page }) => {
   await page.locator('iframe[name="PLN_IN"]').contentFrame().getByText('Visible To Store').click();
   await page.locator('iframe[name="PLN_IN"]').contentFrame().getByText('Visible To Store').click();
   await page.locator('iframe[name="PLN_IN"]').contentFrame().locator('app-date-range-input').locator("(//i[@class='icon icon-calendar icon-color-primary fs-20 ng-untouched ng-valid ng-dirty'])[2]").first().click();
-  await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('cell', { name: dayToday.toString() }).click();
+  await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('cell', { name: dayToday.toString() }).first().click();
 
 
 //Planning Department and Category
@@ -71,8 +72,8 @@ test('create plan', async ({ page }) => {
 //Add Notes
   await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('button', { name: 'Next' }).click();
   await page.locator('iframe[name="PLN_IN"]').contentFrame().getByText('Notes').first().click();
-  await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).click();
-  await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).fill(credentials.projectNotes);
+  await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).click();
+  await page.locator('iframe[name="PLN_IN"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).fill(credentials.projectNotes);
 
 
 //Resources

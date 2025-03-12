@@ -17,6 +17,7 @@ test('Approver create program project', async ({ page }) => {
   await page.locator('#menu-RTM20').click();
   await page.getByRole('link', { name: 'Inbox' }).click();
   const frame = await page.frame({ name: 'RTM20_IN1' });
+  await page.waitForTimeout(5000);
   const createNewButton = frame.locator('a').filter({ hasText: 'Create New' });
   await expect(createNewButton).toBeVisible();
 
@@ -55,8 +56,8 @@ test('Approver create program project', async ({ page }) => {
 //Add Notes
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('button', { name: 'Next' }).click();
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByText('Notes').first().click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).fill(credentials.projectNotes);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).click();
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).fill(credentials.projectNotes);
 
 //Add Attachments
 //  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByText('Attachments').first().click();
@@ -74,7 +75,7 @@ test('Approver create program project', async ({ page }) => {
 //Task Notes
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('div').filter({ hasText: /^Task Notes$/ }).click();
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('//label[@id="taskDescriptionId"]').click();
-   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#cdk-accordion-child-2').getByRole('textbox', { name: 'Rich Text Editor. Editing' }).fill(credentials.projectNotes);
+   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#cdk-accordion-child-2').getByRole('textbox', { name: 'Editor editing area: main.' }).fill(credentials.projectNotes);
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#taskAddBtn').click();
 
 //Add Distribution

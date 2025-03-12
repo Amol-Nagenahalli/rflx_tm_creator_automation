@@ -17,6 +17,7 @@ test('create program project', async ({ page }) => {
   await page.locator('#menu-RTM20').click();
   await page.getByRole('link', { name: 'Inbox' }).click();
   const frame = await page.frame({ name: 'RTM20_IN1' });
+  await page.waitForTimeout(5000);
   const createNewButton = frame.locator('a').filter({ hasText: 'Create New' });
   await expect(createNewButton).toBeVisible();
 
@@ -52,11 +53,11 @@ test('create program project', async ({ page }) => {
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('cell', { name: dayPlus3.toString() }).first().click();
 
 
-//Add Notes
+////Add Notes
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('button', { name: 'Next' }).click();
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByText('Notes').first().click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).fill(credentials.projectNotes);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).click();
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).fill(credentials.projectNotes);
 
 //Add Attachments
 //  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByText('Attachments').first().click();
@@ -74,7 +75,7 @@ test('create program project', async ({ page }) => {
 //Task Notes
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('div').filter({ hasText: /^Task Notes$/ }).click();
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('//label[@id="taskDescriptionId"]').click();
-   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#cdk-accordion-child-2').getByRole('textbox', { name: 'Rich Text Editor. Editing' }).fill(credentials.projectNotes);
+   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#cdk-accordion-child-2').getByRole('textbox', { name: 'Editor editing area: main.' }).fill(credentials.projectNotes);
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#taskAddBtn').click();
 
 //Add Distribution
@@ -93,8 +94,57 @@ test('create program project', async ({ page }) => {
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#mat-input-17').fill(credentials.projectLaunchComment);
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('button', { name: 'Confirm' }).click();
 
+//Filter
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator("//i[@id = 'inbox-filter-icon']").click();
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Project Name' }).click();
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Project Name' }).fill(projectTitle);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('#applyId').click();
+  await page.waitForTimeout(5000);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByTitle('Refresh').locator('i').click();
+  await page.waitForTimeout(5000);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByTitle('Refresh').locator('i').click();
+  await page.waitForTimeout(5000);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByTitle('Refresh').locator('i').click();
+  await page.waitForTimeout(5000);
+
+
+
+// store Login
+  await page.goto(credentials.knldev01);
+  await page.getByRole('textbox', { name: 'Enter username' }).click();
+  await page.getByRole('textbox', { name: 'Enter username' }).fill(credentials.Storeusername);
+  await page.getByRole('textbox', { name: 'Enter password' }).click();
+  await page.getByRole('textbox', { name: 'Enter password' }).fill(credentials.Storepassword);
+  await page.getByRole('button', { name: 'Login' }).click();
+
+
+  await page.getByRole('button', { name: 'Projects' }).click();
+  await page.getByText('Sort By').click();
+  await page.getByRole('button', { name: 'Clear' }).click();
+  await page.waitForTimeout(5000);
+  await page.getByRole('button', { name: 'Clear' }).click();
+  await page.waitForTimeout(5000);
+  await page.getByRole('button', { name: 'Projects' }).click();
+  await page.waitForTimeout(5000);
+  await page.locator(`//span[contains(text(),'${projectTitle}')]`).click();
+  await page.locator("(//div[contains(text(),'Take Action')])[1]").click();
+  await page.getByText('Update Status').click();
+  await page.getByText('Complete', { exact: true }).click();
+  await page.getByRole('button', { name: 'Take Action' }).click();
+
 
 //Post Launch Edit
+
+  await page.goto(credentials.knldev01);
+  await page.getByRole('textbox', { name: 'Enter username' }).click();
+  await page.getByRole('textbox', { name: 'Enter username' }).fill(credentials.username);
+  await page.getByRole('textbox', { name: 'Enter password' }).click();
+  await page.getByRole('textbox', { name: 'Enter password' }).fill(credentials.password);
+  await page.getByRole('button', { name: 'Login' }).click();
+
+  await page.locator('#menu-RTM20').click();
+  await page.getByRole('link', { name: 'Inbox' }).click();
+  await page.waitForTimeout(5000);
 
 //Filter
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator("//i[@id = 'inbox-filter-icon']").click();
@@ -127,8 +177,8 @@ test('create program project', async ({ page }) => {
 
 //Post Notes
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByText('Notes').first().click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Rich Text Editor. Editing' }).fill(credentials.projectNotesEdit);
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).click();
+  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Editor editing area: main.' }).fill(credentials.projectNotesEdit);
 
 //Delete Task
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByText('Task', { exact: true }).first().click();
