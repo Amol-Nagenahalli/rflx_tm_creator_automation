@@ -21,8 +21,8 @@ test('create simple project', async ({ page }) => {
   await expect(createNewButton).toBeVisible();
 
   // Proceed with project creation steps
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().locator('a').filter({ hasText: 'Create New' }).click();
-  await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Filter By Keyword' }).click();
+  frame.contentFrame().locator('a').filter({ hasText: 'Create New' }).click();
+  frame.contentFrame().getByRole('textbox', { name: 'Filter By Keyword' }).click();
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('textbox', { name: 'Filter By Keyword' }).fill(credentials.simpleProjectType);
   await page.locator('iframe[name="RTM20_IN1"]').contentFrame().getByRole('heading', { name: credentials.simpleProjectType }).click();
 

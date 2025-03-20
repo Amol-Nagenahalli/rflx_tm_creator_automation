@@ -3,6 +3,8 @@ module.exports = {
 //URL
   knldev01: 'https://knldev01.reflexisinc.co.in/kernel/views/authenticate/W/REFLEXIS.view',
 //  knldev01: 'https://apprl07pt.reflexisinc.com/kernel/views/authenticate/W/APPRL.view',
+//  knldev01: 'https://fs2.reflexisinc.com/kernel/views/authenticate/W/RFLXUS.view',
+
 //Credentials
   username: 'SYSADMIN',
   password: 'SYSADMINZebra@123!',
@@ -20,6 +22,8 @@ module.exports = {
   projectTitleEdit : `Post Launch Edit Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
   projectTitleCopy : `Copy Program Project Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
   projectTitleEditCopy : "Post Launch Edit Program Project Sanity : TASK-RELEASE",
+  projectTitleTimeSensitive : `TimeSensitive SpecificDate : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
+  projectTitleTimeSensitiveImmediateLaunch : `TimeSensitive Immediate : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
 
 //Simple Project Title
   simpleProjectTitle: `Simple Sanity : TASK-RELEASE ${Math.floor(Math.random() * 100000)}`,
@@ -58,6 +62,20 @@ module.exports = {
   repeatingProjectType: "Repeating Project : KNLDEV01",
   planProjectType: "Plan For Plan Processing KNLDEV01",
   calendarProjectType: "Calendar Project - KNLDEV01",
+  programProjectTimeSensitiveType: "Time Sensitive program Project",
+
+//Project Type Setup
+    projectTypeName: "Program Project : Sanity : KNLDEV01",
+    projectTypeNameApprover : "Program Project APPROVER : Sanity : KNLDEV01",
+    simpleProjectType: "Simple Project - Update Store KNLDEV01",
+    collaborationProjectType: "Collaboration Project - KNLDEV01",
+    simpleRepeatingType: "Simple Repeating Project - Update Store KNLDEV01",
+    repeatingProjectType: "Repeating Project : KNLDEV01",
+    planProjectType: "Plan For Plan Processing KNLDEV01",
+    calendarProjectType: "Calendar Project - KNLDEV01",
+    programProjectTimeSensitiveType: "Time Sensitive program Project",
+
+
 
 ////Project Type Setup ZTM
 //
